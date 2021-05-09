@@ -15,12 +15,13 @@ https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
     pip install -r requirements.txt
 
 Запуск train/predict модели:
+
   Логистическая регрессия:
 
     python train_pipeline.py --config_path ./configs/config_lr.yaml
     python model_predict.py --config_path ./configs/config_lr.yaml
     
-  Логистическая регрессия:
+  Наивный Байес:
 
     python train_pipeline.py --config_path ./configs/config_nb.yaml
     python model_predict.py --config_path ./configs/config_nb.yaml    
