@@ -1,4 +1,4 @@
-В работе использовались данныеЖ
+В работе использовались данные
 https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
 
 Установка (Windows):  
