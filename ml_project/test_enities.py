@@ -1,4 +1,4 @@
-from .src.enities import read_configs
+from src.enities import read_configs
 
 
 def test_read_configs():
