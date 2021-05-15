@@ -19,6 +19,7 @@ class PathsConfig:
 @dataclass
 class TrainConfig:
     model_type: str = MISSING
+    column_y: str = MISSING
     test_size: float = MISSING
     random_state: int = MISSING
 

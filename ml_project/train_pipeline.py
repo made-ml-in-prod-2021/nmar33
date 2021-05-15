@@ -32,8 +32,9 @@ def main(config_path):
                             cnfg.paths.train_dataset_path,
                             cnfg.paths.test_dataset_path)
     logger.info('Загрузка данных завершена')
-    x_train, y_train = train.drop(columns=['stroke']), train['stroke']
-    x_test, y_test = test.drop(columns=['stroke']), test['stroke']
+    column_y = cnfg.train_config.column_y
+    x_train, y_train = train.drop(columns=[column_y]), train[column_y]
+    x_test, y_test = test.drop(columns=[column_y]), test[column_y]
     model_type = cnfg.train_config.model_type
     metrics_path = cnfg.paths.metric_path
     model_path = cnfg.paths.output_model_path
