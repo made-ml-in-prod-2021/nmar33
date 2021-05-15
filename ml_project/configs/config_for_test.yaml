@@ -14,5 +14,6 @@ paths:
   train_dataset_path: ./data/train_test_dataset/train.csv
 train_config:
   model_type: LR
+  column_y: stroke
   random_state: 0
   test_size: 0.3
