@@ -1,9 +1,10 @@
-from src.model import predict_model
-from src.enities import PiplineParams, read_configs
 import sys
 import logging
 import logging.config
 import click
+from src.model import predict_model
+from src.enities import PiplineParams, read_configs
+
 
 @click.command()
 @click.option("--config_path")

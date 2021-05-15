@@ -1,5 +1,5 @@
-import pandas as pd
 import pickle
+import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 

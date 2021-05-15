@@ -1,11 +1,13 @@
-from src.enities import PiplineParams, read_configs
-from src.data import data_load
-from src.model import train_save_model
-
 import sys
 import logging
 import logging.config
 import click
+
+from src.enities import read_configs
+from src.data import data_load
+from src.model import train_save_model
+
+
 
 
 @click.command()

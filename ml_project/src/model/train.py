@@ -1,7 +1,5 @@
 import pickle
 import yaml
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import roc_auc_score, accuracy_score
 
 
@@ -15,10 +13,12 @@ def model_metrics(x_train, y_train, x_test, y_test, model):
 
 
 def logistic_regression_model(x_train, y_train):
+    from sklearn.linear_model import LogisticRegression
     return LogisticRegression(max_iter=2000).fit(x_train, y_train)
 
 
 def naive_bayes_model(x_train, y_train):
+    from sklearn.naive_bayes import GaussianNB
     return GaussianNB().fit(x_train, y_train)
 
 

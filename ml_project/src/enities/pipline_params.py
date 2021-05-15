@@ -1,6 +1,7 @@
-import yaml
 from dataclasses import dataclass, MISSING
 from marshmallow_dataclass import class_schema
+import yaml
+
 
 
 @dataclass
