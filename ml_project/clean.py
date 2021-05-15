@@ -6,8 +6,12 @@ files_to_delete = [
     './logs/log.txt',
     './model/model.pkl',
     './outputs/metrics.yaml',
-    './outputs/predict.csv'
+    './outputs/predict.csv',
+    './data/fake_dataset/fake_dataset.csv'
     ]
 
 for file in files_to_delete:
-    os.remove(file)
+    try:
+        os.remove(file)
+    except:
+        continue

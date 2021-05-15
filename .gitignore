@@ -9,3 +9,4 @@ ml_project/logs/log.txt
 ml_project/model/model.pkl
 ml_project/outputs/metrics.yaml
 ml_project/outputs/predict.csv
+ml_project/data/fake_dataset/fake_dataset.csv

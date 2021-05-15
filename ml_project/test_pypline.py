@@ -1,6 +1,5 @@
 import pandas as pd
 from utils import fake_data_generator
-from src.model import train_save_model
 
 
 def test_fake_data_generator():
