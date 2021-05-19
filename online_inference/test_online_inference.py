@@ -53,3 +53,28 @@ def test_check_predict_1():
     response = client.post('/predict', json=RIGHT_POST_1)
     assert response.status_code == 200
     assert response.json() == {'id': 11, 'predict': 1}
+
+def test_check_predict_1():
+    right_post = RIGHT_POST_1
+    right_post["gender"] = "Female"
+    response = client.post('/predict', json=RIGHT_POST_1)
+    assert response.status_code == 200
+    assert response.json() == {'id': 11, 'predict': 1}
+
+def make_wrong_post(column, new_value):
+    wrong_post = RIGHT_POST_1
+    wrong_post[column] = new_value
+    response = client.post('/predict', json=wrong_post)
+    assert response.status_code == 400
+    assert response.json() == {'detail': 'Invalid data'}
+
+
+def test_check_predict_wrong_post_0():
+    make_wrong_post("gender", "Baobab")
+
+def test_check_predict_wrong_post_1():
+    make_wrong_post("age", 1000)
+
+def test_check_predict_wrong_post_2():
+    make_wrong_post("hypertension", 3)
+

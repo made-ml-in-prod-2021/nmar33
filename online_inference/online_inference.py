@@ -3,12 +3,12 @@ import sys
 import logging
 import logging.config
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 
 from src.model import predict_model, load_model
 from src.enities import DataRequest, read_configs
-from src.data import data_load_online
+from src.data import data_load_online, data_check
 
 
 
@@ -63,6 +63,8 @@ def read_logs():
 def predict(data_request: DataRequest):
     logger.info('Обработка данных')
     status = check_status()
+    if not data_check(data_request):
+        raise HTTPException(status_code=400, detail='Invalid data')
     if status['model_status']:
         data = data_load_online(data_request)
         predict = predict_model(
