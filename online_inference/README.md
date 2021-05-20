@@ -6,16 +6,20 @@ https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
     docker run -it -p 8000:8000 nmar33/online_inference
 
   Инференс модели развернется по адресу:
+
     http://localhost:8000 (http://127.0.0.1:8000 или http://0.0.0.0:8000)
 
   Что бы зайти внутрь запущенного контейнера:
+
     docker container ls
     docker exec -it [CONTAINER ID] /bin/bash
 
   Генерация запросов:
+
     python make_requests.py
 
   Запуск тестов
+
     pytest test_online_inference.py -v
 
 
@@ -46,7 +50,7 @@ https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
 
 
 Самооценка:
-  ~0) ветку назовите homework2, положите код в папку online_inference ~
+  ~~0) ветку назовите homework2, положите код в папку online_inference ~~
 
   1) Оберните inference вашей модели в rest сервис(вы можете использовать как FastAPI, так и flask, другие желательно не использовать, дабы не плодить излишнего разнообразия для проверяющих), должен быть endpoint /predict (3 балла)
 
