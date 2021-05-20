@@ -98,3 +98,4 @@ https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
   2) Тесты могли бы быть лучше
   3) Логирование явно оставляет желать лучшего
 
+Итого: 20 баллов
