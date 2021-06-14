@@ -1,0 +1,101 @@
+В работе использовались данные
+https://www.kaggle.com/fedesoriano/stroke-prediction-dataset
+
+
+    docker pull nmar33/online_inference
+    docker run -it -p 8000:8000 nmar33/online_inference
+
+  Инференс модели развернется по адресу:
+
+    http://localhost:8000 (http://127.0.0.1:8000 или http://0.0.0.0:8000)
+
+  Что бы зайти внутрь запущенного контейнера:
+
+    docker container ls
+    docker exec -it [CONTAINER ID] /bin/bash
+
+  Генерация запросов:
+
+    python make_requests.py
+
+  Запуск тестов
+
+    pytest test_online_inference.py -v
+
+Локальная сборка и запуск Docker:
+
+    docker build -t image:tag
+    docker run -it -p 8000:8000 image:tag
+
+
+
+Запуск без Docker:
+
+  Windows:  
+
+    python -m venv .venv
+    .venv\Scripts\activate.bat
+    pip install -r requirements.txt
+    python setup.py
+
+  Linux:  
+
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+    python setup.py
+    
+  Генерация запросов:
+    python make_requests.py
+
+  Запуск тестов
+    pytest -v
+
+Оптимизация размера докера:
+
+    1) Урезанный питон: python:3.8-slim-buster
+    2) Почистил requirements.txt 
+
+  Изменение размера:
+
+  1.67 Gb (тяжелый питон, ненужные библиотеки) =>
+
+  0.96 Gb (легкий питон, ненужные библиотеки) =>
+
+  0.63 Gb (легкий питон, нужные библиотеки)
+
+
+Самооценка:
+
+  ~~0) ветку назовите homework2, положите код в папку online_inference~~
+
+  ~~1) Оберните inference вашей модели в rest сервис(вы можете использовать как FastAPI, так и flask, другие желательно не использовать, дабы не плодить излишнего разнообразия для проверяющих), должен быть endpoint /predict (3 балла)~~
+
+  ~~2) Напишите тест для /predict  (3 балла) (https://fastapi.tiangolo.com/tutorial/testing/, https://flask.palletsprojects.com/en/1.1.x/testing/)~~
+
+  ~~3) Напишите скрипт, который будет делать запросы к вашему сервису -- 2 балла~~
+
+  ~~4) Сделайте валидацию входных данных (например, порядок колонок не совпадает с трейном, типы не те и пр, в рамках вашей фантазии)  (вы можете сохранить вместе с моделью доп информацию, о структуре входных данных, если это нужно) -- 3 доп балла
+  https://fastapi.tiangolo.com/tutorial/handling-errors/ -- возращайте 400, в случае, если валидация не пройдена~~
+
+  ~~5) Напишите dockerfile, соберите на его основе образ и запустите локально контейнер(docker build, docker run), внутри контейнера должен запускать сервис, написанный в предущем пункте, закоммитьте его, напишите в readme корректную команду сборки (4 балл)~~
+
+  ~~6) Оптимизируйте размер docker image (3 доп балла) (опишите в readme.md что вы предприняли для сокращения размера и каких результатов удалось добиться)  -- https://docs.docker.com/develop/develop-images/dockerfile_best-practices/~~
+
+  ~~7) опубликуйте образ в https://hub.docker.com/, используя docker push (вам потребуется зарегистрироваться) (2 балла)~~
+
+  ~~8) напишите в readme корректные команды docker pull/run, которые должны привести к тому, что локально поднимется на inference ваша модель (1 балл)
+  Убедитесь, что вы можете протыкать его скриптом из пункта 3~~
+
+  ~~5) проведите самооценку -- 1 доп балл~~
+  ~~6) создайте пулл-реквест и поставьте label -- hw2~~
+
+Формально, все сделано, вместе с доп баллами получается 22 балла.
+
+Недостатки:
+
+  1) Валидация входных данных могла бы быть более полной
+  2) Тесты могли бы быть лучше
+  3) Логирование явно оставляет желать лучшего
+
+Итого: 20 баллов
