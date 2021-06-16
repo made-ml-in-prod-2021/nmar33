@@ -14,6 +14,9 @@
 docker compose up --build
 ~~~
 
+## Веб интерфейс доступен по адресу
+http://0.0.0.0:8080 
+
 ## Остановка docker compose 
 ~~~
 docker compose down
