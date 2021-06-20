@@ -1,12 +1,4 @@
 __pycache__
+
 .venv
 .vscode
-
-#Артефакты модели
-ml_project/data/train_test_dataset/test.csv
-ml_project/data/train_test_dataset/train.csv
-ml_project/logs/log.txt
-ml_project/model/model.pkl
-ml_project/outputs/metrics.yaml
-ml_project/outputs/predict.csv
-ml_project/data/fake_dataset/fake_dataset.csv
