@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: online-inference-1
+  labels:
+    app: online-inference
+spec:
+  containers:
+    - image: nmar33/online_inference:v1
+      name: online-inference-image-1
+      ports:
+        - containerPort: 8000

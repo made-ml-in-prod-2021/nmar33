@@ -1,7 +1,10 @@
+from src.enities import online_inference_dataclass
 import os
 import sys
 import logging
 import logging.config
+import time
+
 
 from fastapi import FastAPI, HTTPException
 
@@ -13,7 +16,7 @@ from src.data import data_load_online, data_check
 
 
 
-
+begin_time = time.time()
 config_path = os.getenv('CONFIG_PATH', default='./configs/config_lr.yaml')
 cnfg = read_configs(config_path)
 logging.basicConfig(
@@ -46,10 +49,16 @@ def main():
 
 @app.get('/status')
 def check_status():
-    return {
-        'model_type':model_type, 
-        'model_status':(model is not None)
-    }
+    time_fall = 120 + begin_time - time.time()
+    if time_fall > 0:
+        return {
+            'model_type':model_type, 
+            'model_status':(model is not None)
+        }
+    else:
+        raise MemoryError
+        
+
 
 @app.get('/logs')
 def read_logs():
@@ -77,4 +86,5 @@ def predict(data_request: DataRequest):
     else:
         logger.error('Модель не найдена')
         return 'Модель не найдена'
+
 
